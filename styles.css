@@ -1,0 +1,112 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Navbar fija arriba */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+/* Pestañas */
+.tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #7f8c8d;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Pestaña activa */
+.tab-btn.active {
+    color: #2980b9;
+    border-bottom: 2px solid #2980b9;
+    font-weight: bold;
+}
+
+/* Contenedor de contenido */
+.content-container {
+    margin-top: 80px; /* Para que el contenido no quede abajo de la navbar */
+    padding: 20px 10%;
+}
+
+/* Control de visibilidad de las secciones */
+.portfolio-section {
+    display: none; /* Ocultas por defecto */
+}
+
+.portfolio-section.active {
+    display: block; /* Solo se muestra la que tiene la clase active */
+}
+
+/* Layout de Tarjetas (Grilla adaptable) */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px 0;
+}
+
+.grid-proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.foto-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: #64748b;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: 500;
+}

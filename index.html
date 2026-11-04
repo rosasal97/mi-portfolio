@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portfolio | Tech & Textile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN CON PESTAÑAS -->
+    <header class="navbar">
+        <div class="logo">Tu Nombre</div>
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="switchTab('tech')">Tecnología</button>
+            <button class="tab-btn" onclick="switchTab('textil')">Diseño Textil</button>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        
+        <!-- SECCIÓN TECNOLOGÍA (Visible por defecto) -->
+        <section id="tech" class="portfolio-section active">
+            <div class="hero">
+                <h1>Estudiante de Sistemas / Backend Dev</h1>
+                <p>Explorando la lógica, los algoritmos y la arquitectura de software.</p>
+            </div>
+            
+            <div class="grid-proyectos">
+                <!-- Aquí irán tus proyectos de código -->
+                <div class="card">
+                    <h3>Proyecto C / Algoritmos</h3>
+                    <p>Resolución de problemas de lógica y estructuras de datos.</p>
+                    <a href="#" class="btn">Ver en GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DISEÑO TEXTIL (Oculta al principio) -->
+        <section id="textil" class="portfolio-section">
+            <div class="hero">
+                <h1>Diseño Textil & Arreglos a Pedido</h1>
+                <p>Transformando ideas en prendas y resolviendo problemas de moldería y confección.</p>
+            </div>
+            
+            <div class="grid-proyectos">
+                <!-- Aquí irán las fotos de tus trabajos textiles -->
+                <div class="card">
+                    <div class="foto-placeholder">[ Foto Arreglo WebP ]</div>
+                    <h3>Arreglo de Prenda / Custom</h3>
+                    <p>Detalle del trabajo de costura y optimización de calce.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
