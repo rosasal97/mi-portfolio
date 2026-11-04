@@ -1,60 +1,98 @@
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portfolio | Tech & Textile</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Rocío Belén Dato | Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 3rem; padding: 2rem; background: var(--card-bg); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent); }
+        header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto 1.5rem; }
+        .social-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .btn { background: var(--accent); color: var(--bg-color); padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background 0.2s; }
+        .btn:hover { background: var(--accent-hover); }
+        section { margin-bottom: 2.5rem; background: var(--card-bg); padding: 2rem; border-radius: 12px; }
+        section h2 { margin-bottom: 1rem; font-size: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .card { background: #0f172a; padding: 1.5rem; border-radius: 8px; border: 1px solid #334155; }
+        .card h3 { color: var(--accent); margin-bottom: 0.5rem; }
+        .card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem; }
+        footer { text-align: center; margin-top: 3rem; color: var(--text-secondary); font-size: 0.9rem; }
+    </style>
 </head>
 <body>
-
-    <!-- BARRA DE NAVEGACIÓN CON PESTAÑAS -->
-    <header class="navbar">
-        <div class="logo">Tu Nombre</div>
-        <nav class="tabs">
-            <button class="tab-btn active" onclick="switchTab('tech')">Tecnología</button>
-            <button class="tab-btn" onclick="switchTab('textil')">Diseño Textil</button>
-        </nav>
-    </header>
-
-    <main class="content-container">
-        
-        <!-- SECCIÓN TECNOLOGÍA (Visible por defecto) -->
-        <section id="tech" class="portfolio-section active">
-            <div class="hero">
-                <h1>Estudiante de Sistemas / Backend Dev</h1>
-                <p>Explorando la lógica, los algoritmos y la arquitectura de software.</p>
+    <div class="container">
+        <header>
+            <h1>Rocío Belén Dato</h1>
+            <p>Estudiante de Licenciatura en Sistemas & Diseñadora Textil. Uniendo la lógica del código y los datos con la creatividad del diseño.</p>
+            <div class="social-links">
+                <a href="https://github.com/rosasal97" target="_blank" class="btn">GitHub</a>
+                <a href="https://www.behance.net/rociodato" target="_blank" class="btn">Behance</a>
+                <a href="mailto:rociodato1@gmail.com" class="btn">Contacto Email</a>
             </div>
-            
-            <div class="grid-proyectos">
-                <!-- Aquí irán tus proyectos de código -->
-                <div class="card">
-                    <h3>Proyecto C / Algoritmos</h3>
-                    <p>Resolución de problemas de lógica y estructuras de datos.</p>
-                    <a href="#" class="btn">Ver en GitHub</a>
+        </header>
+
+        <main>
+            <section>
+                <h2>💻 Desarrollo & Sistemas (Tech)</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Licenciatura en Sistemas (UNLa)</h3>
+                        <p>Cursando actualmente (Turno Noche). Enfoque en algoritmos, estructuras de datos, lógica y arquitectura de software.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Data Science (Talento Tech)</h3>
+                        <p>Formación especializada en análisis de datos, herramientas tecnológicas y modelado.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Proyectos de Código & C</h3>
+                        <p>Resolución de problemas algorítmicos y desarrollo en C, HTML5, CSS3, SQL y control de versiones con Git/VSCode.</p>
+                        <a href="https://github.com/rosasal97" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold;">Ver repositorios →</a>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- SECCIÓN DISEÑO TEXTIL (Oculta al principio) -->
-        <section id="textil" class="portfolio-section">
-            <div class="hero">
-                <h1>Diseño Textil & Arreglos a Pedido</h1>
-                <p>Transformando ideas en prendas y resolviendo problemas de moldería y confección.</p>
-            </div>
-            
-            <div class="grid-proyectos">
-                <!-- Aquí irán las fotos de tus trabajos textiles -->
-                <div class="card">
-                    <div class="foto-placeholder">[ Foto Arreglo WebP ]</div>
-                    <h3>Arreglo de Prenda / Custom</h3>
-                    <p>Detalle del trabajo de costura y optimización de calce.</p>
+            <section>
+                <h2>🎨 Diseño Textil & Proyectos (Rosasal Design)</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Moldería y Confección</h3>
+                        <p>Ejecución de proyectos complejos, lencería técnica y sastrería con manejo avanzado de maquinaria industrial.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Diseño y Rediseño Sustentable</h3>
+                        <p>Transformación de prendas, prototipado y atención directa para asesoramiento de calce y materiales.</p>
+                        <a href="https://www.behance.net/rociodato" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold;">Ver trabajos en Behance →</a>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-    </main>
+            <section>
+                <h2>⚙️ Experiencia y Trayectoria</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Soporte Técnico y Administración</h3>
+                        <p>Experiencia en Telecentro (Mesa de ayuda), Nike Argentina (Administración y control de stock) y Visual Merchandising (Barlog / CCU), destacando la resolución de problemas y atención al cliente.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-    <script src="script.js"></script>
+        <footer>
+            <p>Monte Grande, Buenos Aires • Disponibilidad inmediata</p>
+        </footer>
+    </div>
 </body>
 </html>
