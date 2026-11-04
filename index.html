@@ -1,10 +1,9 @@
-HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rocío Belén Dato | Portfolio</title>
+    <title>Rocío Belén Dato | Tech & Textile Portfolio</title>
     <style>
         :root {
             --bg-color: #0f172a;
@@ -17,82 +16,137 @@ HTML
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; padding: 2rem 1rem; }
         .container { max-width: 900px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 3rem; padding: 2rem; background: var(--card-bg); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
-        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent); }
-        header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto 1.5rem; }
-        .social-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-        .btn { background: var(--accent); color: var(--bg-color); padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background 0.2s; }
-        .btn:hover { background: var(--accent-hover); }
-        section { margin-bottom: 2.5rem; background: var(--card-bg); padding: 2rem; border-radius: 12px; }
-        section h2 { margin-bottom: 1rem; font-size: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-        .card { background: #0f172a; padding: 1.5rem; border-radius: 8px; border: 1px solid #334155; }
+        
+        /* Navbar y Pestañas */
+        .navbar { display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); padding: 1rem 2rem; border-radius: 12px; margin-bottom: 2.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.3); flex-wrap: wrap; gap: 1rem; }
+        .logo { font-size: 1.25rem; font-weight: bold; color: var(--accent); }
+        .tabs { display: flex; gap: 0.5rem; }
+        .tab-btn { background: transparent; border: 1px solid #334155; color: var(--text-secondary); padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s; }
+        .tab-btn.active, .tab-btn:hover { background: var(--accent); color: var(--bg-color); border-color: var(--accent); }
+
+        /* Secciones */
+        .portfolio-section { display: none; }
+        .portfolio-section.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero { text-align: center; margin-bottom: 2rem; padding: 2rem; background: var(--card-bg); border-radius: 12px; }
+        .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--accent); }
+        .hero p { color: var(--text-secondary); font-size: 1.05rem; max-width: 650px; margin: 0 auto; }
+
+        .grid-proyectos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .card { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid #334155; display: flex; flex-direction: column; justify-content: space-between; }
         .card h3 { color: var(--accent); margin-bottom: 0.5rem; }
-        .card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem; }
-        footer { text-align: center; margin-top: 3rem; color: var(--text-secondary); font-size: 0.9rem; }
+        .card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        
+        .btn { background: var(--accent); color: var(--bg-color); padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: bold; text-align: center; transition: background 0.2s; display: inline-block; }
+        .btn:hover { background: var(--accent-hover); }
+
+        footer { text-align: center; margin-top: 3rem; color: var(--text-secondary); font-size: 0.9rem; background: var(--card-bg); padding: 1.5rem; border-radius: 12px; }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <header>
-            <h1>Rocío Belén Dato</h1>
-            <p>Estudiante de Licenciatura en Sistemas & Diseñadora Textil. Uniendo la lógica del código y los datos con la creatividad del diseño.</p>
-            <div class="social-links">
-                <a href="https://github.com/rosasal97" target="_blank" class="btn">GitHub</a>
-                <a href="https://www.behance.net/rociodato" target="_blank" class="btn">Behance</a>
-                <a href="mailto:rociodato1@gmail.com" class="btn">Contacto Email</a>
-            </div>
+        <!-- BARRA DE NAVEGACIÓN CON PESTAÑAS -->
+        <header class="navbar">
+            <div class="logo">Rocío Belén Dato</div>
+            <nav class="tabs">
+                <button class="tab-btn active" onclick="switchTab('tech')">Tecnología & Sistemas</button>
+                <button class="tab-btn" onclick="switchTab('textil')">Diseño Textil</button>
+            </nav>
         </header>
 
-        <main>
-            <section>
-                <h2>💻 Desarrollo & Sistemas (Tech)</h2>
-                <div class="grid">
+        <main class="content-container">
+            
+            <!-- SECCIÓN TECNOLOGÍA (Visible por defecto) -->
+            <section id="tech" class="portfolio-section active">
+                <div class="hero">
+                    <h1>Estudiante de Sistemas / Backend & Datos</h1>
+                    <p>Explorando la lógica, los algoritmos, la arquitectura de software y la ciencia de datos para resolver problemas reales.</p>
+                </div>
+                
+                <div class="grid-proyectos">
                     <div class="card">
-                        <h3>Licenciatura en Sistemas (UNLa)</h3>
-                        <p>Cursando actualmente (Turno Noche). Enfoque en algoritmos, estructuras de datos, lógica y arquitectura de software.</p>
+                        <div>
+                            <h3>Licenciatura en Sistemas (UNLa)</h3>
+                            <p>Cursando actualmente (Turno Noche). Foco en estructuras de datos, algoritmos y desarrollo backend.</p>
+                        </div>
+                        <a href="https://github.com/rosasal97" target="_blank" class="btn">Ver GitHub</a>
                     </div>
                     <div class="card">
-                        <h3>Data Science (Talento Tech)</h3>
-                        <p>Formación especializada en análisis de datos, herramientas tecnológicas y modelado.</p>
+                        <div>
+                            <h3>Data Science (Talento Tech)</h3>
+                            <p>Formación especializada en análisis de datos, herramientas tecnológicas y modelado.</p>
+                        </div>
+                        <a href="https://github.com/rosasal97" target="_blank" class="btn">Ver Repositorios</a>
                     </div>
                     <div class="card">
-                        <h3>Proyectos de Código & C</h3>
-                        <p>Resolución de problemas algorítmicos y desarrollo en C, HTML5, CSS3, SQL y control de versiones con Git/VSCode.</p>
-                        <a href="https://github.com/rosasal97" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold;">Ver repositorios →</a>
+                        <div>
+                            <h3>Proyecto C / Algoritmos</h3>
+                            <p>Resolución de problemas de lógica y optimización de código en lenguaje C y entornos web (HTML/CSS/SQL).</p>
+                        </div>
+                        <a href="https://github.com/rosasal97" target="_blank" class="btn">Ver Código</a>
                     </div>
                 </div>
             </section>
 
-            <section>
-                <h2>🎨 Diseño Textil & Proyectos (Rosasal Design)</h2>
-                <div class="grid">
+            <!-- SECCIÓN DISEÑO TEXTIL (Oculta al principio) -->
+            <section id="textil" class="portfolio-section">
+                <div class="hero">
+                    <h1>Rosasal Design | Diseño Textil & Arreglos</h1>
+                    <p>Transformando ideas en prendas, moldería compleja, sastrería y proyectos de rediseño sustentable.</p>
+                </div>
+                
+                <div class="grid-proyectos">
                     <div class="card">
-                        <h3>Moldería y Confección</h3>
-                        <p>Ejecución de proyectos complejos, lencería técnica y sastrería con manejo avanzado de maquinaria industrial.</p>
+                        <div>
+                            <h3>Moldería Compleja y Confección</h3>
+                            <p>Ejecución de prendas a medida, lencería técnica y sastrería con manejo avanzado de maquinaria industrial (recta, overlock, collareta).</p>
+                        </div>
+                        <a href="https://www.behance.net/rociodato" target="_blank" class="btn">Ver en Behance</a>
                     </div>
                     <div class="card">
-                        <h3>Diseño y Rediseño Sustentable</h3>
-                        <p>Transformación de prendas, prototipado y atención directa para asesoramiento de calce y materiales.</p>
-                        <a href="https://www.behance.net/rociodato" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold;">Ver trabajos en Behance →</a>
+                        <div>
+                            <h3>Rediseño Sustentable & Prototipos</h3>
+                            <p>Intervención de prendas, operación de máquina familiar Knittax y atención directa al cliente para asesoramiento de calce.</p>
+                        </div>
+                        <a href="https://www.behance.net/rociodato" target="_blank" class="btn">Ver Trabajos</a>
                     </div>
                 </div>
             </section>
 
-            <section>
-                <h2>⚙️ Experiencia y Trayectoria</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Soporte Técnico y Administración</h3>
-                        <p>Experiencia en Telecentro (Mesa de ayuda), Nike Argentina (Administración y control de stock) y Visual Merchandising (Barlog / CCU), destacando la resolución de problemas y atención al cliente.</p>
-                    </div>
-                </div>
-            </section>
         </main>
 
         <footer>
-            <p>Monte Grande, Buenos Aires • Disponibilidad inmediata</p>
+            <p>Monte Grande, Buenos Aires • rociodato1@gmail.com • Disponibilidad inmediata</p>
         </footer>
     </div>
+
+    <!-- SCRIPT PARA CAMBIAR DE PESTAÑA -->
+    <script>
+        function switchTab(tabId) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.portfolio-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Desactivar todos los botones
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Mostrar la sección seleccionada
+            document.getElementById(tabId).classList.add('active');
+
+            // Activar el botón correspondiente
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
